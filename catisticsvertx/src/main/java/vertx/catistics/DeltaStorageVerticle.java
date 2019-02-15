@@ -33,9 +33,7 @@ public class DeltaStorageVerticle extends AbstractVerticle {
 
   @Override
   public void start(Future<Void> startFuture) throws Exception {
-    System.out.println("start");
     MessageConsumer<Object> consumer = vertx.eventBus().consumer(KafkaVerticle.KAFKA_MESSAGE_ADDRESS, handler -> {
-      System.out.println("ms");
       client.save("temperature", new JsonObject(handler.body().toString()), mongoReply -> {
         LOGGER.info(() -> "Temperature stored, temp: " + mongoReply.result());
         if (mongoReply.succeeded()) {

@@ -10,6 +10,23 @@
     <properties>
         <ignite.version>2.7.0</ignite.version>
     </properties>
+    <build>
+    <plugins>
+        <plugin>
+            <artifactId>maven-assembly-plugin</artifactId>
+            <configuration>
+                <archive>
+                    <manifest>
+                        <mainClass>dk.incoding.igniting.Incoding</mainClass>
+                    </manifest>
+                </archive>
+                <descriptorRefs>
+                    <descriptorRef>jar-with-dependencies</descriptorRef>
+                </descriptorRefs>
+            </configuration>
+        </plugin>
+    </plugins>
+    </build>
     <dependencies>
         <dependency>
             <groupId>org.apache.ignite</groupId>
