@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2019-02-15T21:33:29.030931Z</date>
+  <millis>1550266409030</millis>
+  <nanos>931000</nanos>
+  <sequence>0</sequence>
+  <logger>vertx.catistics.DeltaStorageVerticle</logger>
+  <level>INFO</level>
+  <class>vertx.catistics.DeltaStorageVerticle</class>
+  <method>lambda$start$3</method>
+  <thread>16</thread>
+  <message>Temperature stored, temp: 5c67302800f6cf392c16e487</message>
+</record>
+<record>
+  <date>2019-02-15T21:33:29.151051Z</date>
+  <millis>1550266409151</millis>
+  <nanos>51000</nanos>
+  <sequence>1</sequence>
+  <logger>vertx.catistics.DeltaStorageVerticle</logger>
+  <level>INFO</level>
+  <class>vertx.catistics.DeltaStorageVerticle</class>
+  <method>lambda$start$3</method>
+  <thread>16</thread>
+  <message>Temperature stored, temp: 5c67302800f6cf392c16e487</message>
+</record>
+</log>

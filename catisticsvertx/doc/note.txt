@@ -1,0 +1,27 @@
+
+
+Raspberry Pi:
+
+Hardware:
+
+Temperatur sensor
+Lyssensor
+Motion detector
+Sound detector
+
+Python prg:
+ Temperatur
+ Lyssensor
+ Sounddetector
+ Motion detector ?
+ 
+Python prg --> Kafka -> catistix -> web
+
+catistix
+  -- kafkaclient --> xxHandler
+  -- tempHandler --> distDb (last 24 hour, avg last 24h)
+  -- LightHandler --> distDb (light on/off last 24h, year)
+  -- SoundHandler --> distDb (??)
+  -- MoitionHandler --> distDb (??)
+  -- GuiHandler <-- xxhandler (Show temp, show light)
+
