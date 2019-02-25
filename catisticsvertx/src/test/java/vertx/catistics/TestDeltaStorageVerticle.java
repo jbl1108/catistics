@@ -11,7 +11,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import vertx.catistics.wrappers.TemperatureWrapper;
+import vertx.catistics.pojos.Temperature;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -30,7 +30,7 @@ public class TestDeltaStorageVerticle {
   @Test
   void startDeltaStore(Vertx vertx, VertxTestContext testContext) throws Throwable {
 
-    TemperatureWrapper temp = new TemperatureWrapper(10.2f, "C");
+    Temperature temp = new Temperature(10.2f, "C");
     String tempJson = Json.encode(temp);
     vertx.eventBus().publish(KafkaVerticle.KAFKA_MESSAGE_ADDRESS, tempJson);
 

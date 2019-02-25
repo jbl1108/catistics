@@ -1,11 +1,14 @@
 package vertx.catistics;
 
 
-import io.vertx.core.*;
+import io.vertx.core.AbstractVerticle;
+import io.vertx.core.Context;
+import io.vertx.core.Future;
+import io.vertx.core.Vertx;
+import io.vertx.core.eventbus.MessageProducer;
 import io.vertx.core.json.Json;
-import io.vertx.core.json.JsonObject;
 import io.vertx.kafka.client.consumer.KafkaConsumer;
-import vertx.catistics.wrappers.TemperatureWrapper;
+import vertx.catistics.pojos.Temperature;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -43,9 +46,11 @@ public class KafkaVerticle extends AbstractVerticle {
     consumer.handler(record -> {
       LOGGER.info(() -> "message received: "+record.value()+", topic: "+record.topic()+", offset: "+record.offset());
       //Validate json before forwarding to other Verticles
-      TemperatureWrapper temp = Json.decodeValue(record.value(),TemperatureWrapper.class);
+      Temperature temp = Json.decodeValue(record.value(), Temperature.class);
 
       getVertx().eventBus().publish(KAFKA_MESSAGE_ADDRESS,Json.encode(temp));
+      MessageProducer<Object> spublisher = getVertx().eventBus().publisher("stream");
+
 
     }).subscribe("temperature");
     startFuture.complete();
